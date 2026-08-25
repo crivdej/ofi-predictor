@@ -1,4 +1,9 @@
-"""Test Binance.US connection and available symbols"""
+"""
+Manual smoke-test script for the Binance.US REST connection — not a pytest
+suite (run directly with `python check_binance_connection.py`; makes a real
+network call). Renamed from test_binance.py so `pytest` doesn't try to
+collect and import it, which would fire that network call as a side effect.
+"""
 from binance.client import Client
 
 # Create client for Binance.US

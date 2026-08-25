@@ -121,7 +121,7 @@ class TrainingDataCollector:
         return df
 
 if __name__ == "__main__":
-    # Collect 10 minutes of data (or stop early with Ctrl+C)
+    # Collect 120 minutes of data (or stop early with Ctrl+C)
     collector = TrainingDataCollector(duration_minutes=120, update_interval=2.0)
     df = collector.collect()
     

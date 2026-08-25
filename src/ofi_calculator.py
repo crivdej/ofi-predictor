@@ -31,6 +31,10 @@ class OFICalculator:
         
         # OFI = bid increases - ask increases
         ofi_total = np.sum(bid_changes) - np.sum(ask_changes)
+        # Per-level breakdown. Not yet wired up: FeatureEngineer.extract_features()
+        # only reads ofi_total from this dict, so ofi_by_level currently only feeds
+        # calculate_weighted_ofi() below (itself not called anywhere yet either).
+        # Left in as plausible future feature scope rather than removed.
         ofi_by_level = bid_changes - ask_changes
         
         # Volume metrics
@@ -49,7 +53,12 @@ class OFICalculator:
         }
     
     def calculate_weighted_ofi(self, prev_book, curr_book, weights=None):
-        """Calculate weighted OFI with higher weight for closer levels"""
+        """Calculate weighted OFI with higher weight for closer levels.
+
+        Not currently called anywhere in the pipeline (feature_engineer.py only
+        uses ofi_total from calculate_ofi()) — left in as unused-but-plausible
+        future feature scope rather than removed.
+        """
         if weights is None:
             weights = np.array([1.0, 0.8, 0.6, 0.4, 0.2][:self.num_levels])
         

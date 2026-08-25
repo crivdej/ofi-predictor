@@ -1,4 +1,9 @@
-"""Quick setup verification"""
+"""
+Quick setup verification — not a pytest suite, just a manual script to check
+required packages are installed (run directly with `python check_setup.py`).
+Renamed from test_setup.py so `pytest` doesn't try to collect it as a test
+module. `tests/` is currently empty — no automated tests exist yet.
+"""
 import sys
 print(f"Python version: {sys.version}\n")
 
